@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HwHelp - Study Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="hw.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="topbar">
+    <span class="topicon" title="Chats" id="chats-btn">
+      <svg viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="13" rx="3" />
+        <path d="M8 18v1.5a1.5 1.5 0 0 0 2.25 1.3L14 18"/>
+      </svg>
+    </span>
+    <span class="topicon" title="Settings" id="settings-btn">
+      <svg viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" />
+        <path d="M19.4 15a1.7 1.7 0 0 0 .33 1.82l.02.02a2 2 0 0 1-2.83 2.83l-.02-.02A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1.82.33l-.02.02a2 2 0 0 1-2.83-2.83l.02-.02A1.7 1.7 0 0 0 8.6 15a1.7 1.7 0 0 0-1.82-.33l-.02.02a2 2 0 0 1-2.83-2.83l.02-.02A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.33-1.82l-.02-.02a2 2 0 0 1 2.83-2.83l.02.02A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1.82-.33l.02-.02a2 2 0 0 1 2.83 2.83l-.02.02A1.7 1.7 0 0 0 15 8.6a1.7 1.7 0 0 0 1.82.33l.02-.02a2 2 0 0 1 2.83 2.83l-.02.02A1.7 1.7 0 0 0 19.4 15Z"/>
+      </svg>
+    </span>
+    <span class="brand">HwHelp</span>
+  </div>
+  <!-- Sidebar for chats -->
+  <div class="sidebar" id="chats-sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">
+        <span>📚</span> Chats
+      </div>
+      <button class="sidebar-close" id="close-chats-sidebar">&times;</button>
+    </div>
+    <div class="chat-list" id="chat-list">
+      <button class="chat-new-btn" id="new-chat-btn" title="New Chat">+</button>
+      <!-- Chat items injected here -->
+    </div>
+  </div>
+  <div id="chat-area"></div>
+  <!-- Settings Modal -->
+  <div class="modal" id="settings-modal">
+    <div class="modal-content">
+      <button class="close-btn" id="close-settings-btn">&times;</button>
+      <h2 style="margin-bottom:24px;">Settings</h2>
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;">
+        <label class="switch">
+          <input type="checkbox" id="darkmode-toggle">
+          <span class="slider"></span>
+        </label>
+        <span id="darkmode-label">Dark mode</span>
+      </div>
+      <div style="margin-top: 28px;">
+        <button class="export-btn" id="export-chat-btn" type="button">Export Chat</button>
+        <div style="font-size:.94em; color:#888; margin-top:7px;">Download this chat as a .md file with timestamps.</div>
+      </div>
+    </div>
+  </div>
+  <div class="inputbar-container">
+    <form class="inputbar" onsubmit="event.preventDefault(); sendMessage();">
+      <input type="text" id="user-input" placeholder="Message HwHelp..." autocomplete="off">
+      <button id="send-btn" title="Send" type="submit">&#9658;</button>
+    </form>
+  </div>
+  <script src="hw.js"></script>
+</body>
+</html>
